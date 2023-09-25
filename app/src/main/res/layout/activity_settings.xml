@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".Views.SettingsActivity"
+    android:orientation="vertical"
+    android:background="#90EE90
+">
+
+    <TextView
+        android:id="@+id/set_txtview1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Counter 1 Name"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:layout_marginBottom="0.1in"
+        android:textSize="20dp"
+        />
+
+    <EditText
+        android:id="@+id/counter_name1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name goes here"
+        android:layout_margin="0.1in"
+        android:textSize="20dp"
+        android:background="#FFFFFF"
+        android:inputType="text"
+        />
+
+    <TextView
+        android:id="@+id/set_txtview2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Counter 2 Name"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:layout_marginBottom="0.1in"
+        android:textSize="20dp"
+        />
+
+    <EditText
+        android:id="@+id/counter_name2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name goes here"
+        android:layout_margin="0.1in"
+        android:textSize="20dp"
+        android:background="#FFFFFF"
+        android:inputType="text"
+        />
+
+    <TextView
+        android:id="@+id/set_txtview3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Counter 3 Name"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:layout_marginBottom="0.1in"
+        android:textSize="20dp"
+        />
+
+    <EditText
+        android:id="@+id/counter_name3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name goes here"
+        android:layout_margin="0.1in"
+        android:textSize="20dp"
+        android:background="#FFFFFF"
+        android:inputType="text"
+        />
+
+    <TextView
+        android:id="@+id/set_txtview4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Maximum Counts"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:layout_marginBottom="0.1in"
+        android:textSize="20dp"
+        />
+
+    <EditText
+        android:id="@+id/max_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Max counts goes here"
+        android:layout_margin="0.1in"
+        android:textSize="20dp"
+        android:background="#FFFFFF"
+        android:inputType="text"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SAVE"
+        android:textSize="18dp"
+        android:background="#FFCCCB"
+        android:layout_marginTop="0.1in"/>
+
+
+
+
+</LinearLayout>
