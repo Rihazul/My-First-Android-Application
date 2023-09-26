@@ -27,11 +27,11 @@
         android:id="@+id/counter_name1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Name goes here"
+        android:hint="Name goes here"
         android:layout_margin="0.1in"
         android:textSize="20dp"
         android:background="#FFFFFF"
-        android:inputType="text"
+        android:inputType="none"
         />
 
     <TextView
@@ -49,11 +49,11 @@
         android:id="@+id/counter_name2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Name goes here"
+        android:hint="Name goes here"
         android:layout_margin="0.1in"
         android:textSize="20dp"
         android:background="#FFFFFF"
-        android:inputType="text"
+        android:inputType="none"
         />
 
     <TextView
@@ -71,11 +71,11 @@
         android:id="@+id/counter_name3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Name goes here"
+        android:hint="Name goes here"
         android:layout_margin="0.1in"
         android:textSize="20dp"
         android:background="#FFFFFF"
-        android:inputType="text"
+        android:inputType="none"
         />
 
     <TextView
@@ -93,11 +93,11 @@
         android:id="@+id/max_count"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Max counts goes here"
+        android:hint="Max counts goes here"
         android:layout_margin="0.1in"
         android:textSize="20dp"
         android:background="#FFFFFF"
-        android:inputType="text"
+        android:inputType="number"
         />
 
     <Button
