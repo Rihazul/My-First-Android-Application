@@ -1,1 +1,1 @@
-# COEN-390-ASSIGNMENT1
+# My First Android Application before the big project on android app developement with sensors
