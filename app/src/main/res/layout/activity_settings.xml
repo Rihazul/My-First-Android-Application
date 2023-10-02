@@ -26,12 +26,14 @@
     <EditText
         android:id="@+id/counter_name1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:hint="Name goes here"
         android:layout_margin="0.1in"
         android:textSize="20dp"
         android:background="#FFFFFF"
         android:inputType="none"
+        android:enabled="false"
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
         />
 
     <TextView
@@ -48,12 +50,14 @@
     <EditText
         android:id="@+id/counter_name2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:hint="Name goes here"
         android:layout_margin="0.1in"
         android:textSize="20dp"
         android:background="#FFFFFF"
         android:inputType="none"
+        android:enabled="false"
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
         />
 
     <TextView
@@ -70,12 +74,14 @@
     <EditText
         android:id="@+id/counter_name3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:hint="Name goes here"
         android:layout_margin="0.1in"
         android:textSize="20dp"
         android:background="#FFFFFF"
         android:inputType="none"
+        android:enabled="false"
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
         />
 
     <TextView
@@ -92,15 +98,17 @@
     <EditText
         android:id="@+id/max_count"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:hint="Max counts goes here"
         android:layout_margin="0.1in"
         android:textSize="20dp"
         android:background="#FFFFFF"
         android:inputType="number"
+        android:enabled="false"
         />
 
     <Button
+        android:id="@+id/btn_save1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SAVE"
