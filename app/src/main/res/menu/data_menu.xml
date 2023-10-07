@@ -7,4 +7,9 @@
         android:title="toggle Event name"
         app:showAsAction="never"/>
 
+    <item
+        android:id="@+id/clear_everything"
+        android:title="clear all"
+        app:showAsAction="never"/>
+
 </menu>

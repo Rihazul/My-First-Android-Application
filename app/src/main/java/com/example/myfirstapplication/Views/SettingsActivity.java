@@ -29,9 +29,13 @@ public class SettingsActivity extends AppCompatActivity {
      EditText editText2;
      EditText editText3;
      EditText editTextcount;
+
+     TextView respone;
      Button btn_save;
      SharedPreferences sharedpreferences;
     String editText_1Str,editText_2Str,editText_3Str;
+
+    private boolean unsavedData;
 
     int max_length=20;
 
@@ -47,9 +51,11 @@ public class SettingsActivity extends AppCompatActivity {
         editText2=findViewById(R.id.counter_name2);
         editText3=findViewById(R.id.counter_name3);
         editTextcount=findViewById(R.id.max_count);
+        respone=findViewById(R.id.txtviewresponse);
 
         btn_save=findViewById(R.id.btn_save1);
 
+        //checks the use case of the button names
         InputFilter[] filterArray=new InputFilter[1];
         filterArray[0]=new InputFilter.LengthFilter(max_length);
 
@@ -57,11 +63,8 @@ public class SettingsActivity extends AppCompatActivity {
         editText2.setFilters(filterArray);
         editText3.setFilters(filterArray);
 
-//        SharedPreferencesHelper SHP= new SharedPreferencesHelper(editText1,editText2,editText3,editTextcount,btn_save);
-//
-//        SHP.save_info();
 
-
+        //save all info by user
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,8 +73,21 @@ public class SettingsActivity extends AppCompatActivity {
                 editText3.setEnabled(false);
                 editTextcount.setEnabled(false);
 
-                save_data();
 
+                String another_txt1=editText1.getText().toString();
+                String another_txt2=editText2.getText().toString();
+                String another_txt3=editText3.getText().toString();
+                int another_txtcnt= Integer.parseInt(editTextcount.getText().toString());
+
+
+                if(another_txt1.length()==0 ||another_txt2.length()==0 ||another_txt3.length()==0 || another_txtcnt<5 || another_txtcnt>200) {
+                    editText1.setEnabled(true);
+                    editText2.setEnabled(true);
+                    editText3.setEnabled(true);
+                    editTextcount.setEnabled(true);
+                    respone.setText("Inputs not saved please reset them!");
+                }
+                save_data();
             }
         });
 
@@ -86,7 +102,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     public boolean onOptionsItemSelected(MenuItem item)
     {
-      if(item.getItemId()==R.id.edit_settings)
+      if(item.getItemId()==R.id.edit_settings) //when pressing settings menu enable edit all info
       {
           editText1.setEnabled(true);
           editText1.setFocusableInTouchMode(true);
@@ -115,21 +131,13 @@ public class SettingsActivity extends AppCompatActivity {
         invalidateOptionsMenu();
     }
 
-    public void save_data()
+    public void save_data() //function that saves all data written to sharedpreference
     {
         editText_1Str =editText1.getText().toString();
         editText_2Str= editText2.getText().toString();
         editText_3Str= editText3.getText().toString();
         count=Integer.parseInt(editTextcount.getText().toString());
 
-//        sharedpreferences= this.getSharedPreferences("SettingsInfo", Context.MODE_PRIVATE);
-//        SharedPreferences.Editor editor= sharedpreferences.edit();
-//
-//        editor.putString("buttonname1",editText_1Str);
-//        editor.putString("buttonname2",editText_2Str);
-//        editor.putString("buttonname3",editText_3Str);
-//        editor.putInt("MaxCounter",count);
-//        editor.apply();
 
         SharedPreferencesHelper sharedPreferencesHelper=new SharedPreferencesHelper(SettingsActivity.this);
         sharedPreferencesHelper.saveKey("buttonname1",editText_1Str);
@@ -138,4 +146,5 @@ public class SettingsActivity extends AppCompatActivity {
         sharedPreferencesHelper.saveKey("MaxCounter",count);
 
     }
+
 }

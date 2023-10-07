@@ -116,6 +116,18 @@
         android:background="#FFCCCB"
         android:layout_marginTop="0.1in"/>
 
+    <TextView
+        android:id="@+id/txtviewresponse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" "
+        android:layout_marginTop="0.1in"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20dp">
+
+    </TextView>
+
 
 
 

@@ -31,17 +31,34 @@ public class SharedPreferencesHelper {
         Log.d("TAG_Store","Push = "+push);
     }
 
+    public void saveKey(String key,boolean value)
+    {
+        editor.putBoolean(key,value);
+        boolean push= editor.commit();
+        Log.d("TAG_Store","Push = "+push);
+    }
+
     public  String getStringKey(String key)
     {
-        return sharedPreferences.getString(key,null);
+        return sharedPreferences.getString(key,"no name");
     }
 
     public int getIntKey(String key)
     {
-        return sharedPreferences.getInt(key,-1);
+        return sharedPreferences.getInt(key,0);
     }
 
-   public void removeall()
+    public boolean getBoolKey(String key)
+    {
+        return sharedPreferences.getBoolean(key,false);
+    }
+
+    public void removeKey(String key)
+    {
+        editor.remove(key);
+    }
+
+    public void removeall()
    {
        editor.clear();
        editor.apply();

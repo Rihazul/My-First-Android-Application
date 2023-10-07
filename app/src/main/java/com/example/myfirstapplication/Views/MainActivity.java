@@ -13,6 +13,8 @@ import android.widget.TextView;
 import com.example.myfirstapplication.Controllers.SharedPreferencesHelper;
 import com.example.myfirstapplication.R;
 
+import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedpreferences;
@@ -22,9 +24,12 @@ public class MainActivity extends AppCompatActivity {
     private Button show_counts;
     TextView txt_display;
     int count = 0;
-    int counter_1,counter_2,counter_3;
+    int counter_1 = 0,counter_2 = 0,counter_3 = 0;
     String button1_name,button2_name,button3_name;
     int max_count;
+
+    StringBuilder stringBuilder=new StringBuilder();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +45,6 @@ public class MainActivity extends AppCompatActivity {
         txt_display = findViewById(R.id.textlayout2);
 
 
-//        sharedpreferences=getSharedPreferences("SettingsInfo", Context.MODE_PRIVATE);
-//        button1_name=sharedpreferences.getString("buttonname1",null);
-//        button2_name=sharedpreferences.getString("buttonname2",null);
-//        button3_name=sharedpreferences.getString("buttonname3",null);
-//        int max_count=sharedpreferences.getInt("MaxCounter",-1) ;
-
-//        int max_count=10;
-
 
         SharedPreferencesHelper sharedPreferencesHelper=new SharedPreferencesHelper(MainActivity.this);
         button1_name=sharedPreferencesHelper.getStringKey("buttonname1");
@@ -60,13 +57,14 @@ public class MainActivity extends AppCompatActivity {
         button2.setText(button2_name);
         button3.setText(button3_name);
 
-        if(button1.getText().length()==0 && button2.getText().length()==0 && button3.getText().length()==0)
+        //checks if any button doesn't display any name returns back to setting by force
+        if(button1.getText().length()==0 || button2.getText().length()==0 || button3.getText().length()==0 || max_count> 200 || max_count<5)
         {
             Intent intent=new Intent(MainActivity.this, SettingsActivity.class);
             startActivity(intent);
         }
 
-//        event A
+//      //stuff that happens when button 1 is pressed
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,6 +73,10 @@ public class MainActivity extends AppCompatActivity {
                 txt_display.setText("Total clicks = " + count);
                 sharedPreferencesHelper.saveKey("counterForMax",count);
                 sharedPreferencesHelper.saveKey("counter1",counter_1);
+
+                stringBuilder.append(button1_name).append(",");
+                String finalstring=stringBuilder.toString();
+                sharedPreferencesHelper.saveKey("button_name_holder",finalstring);
 
                 if(count==max_count)
                 {
@@ -86,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        Event B
+//        //stuff that happens when button 2 is pressed
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,6 +98,10 @@ public class MainActivity extends AppCompatActivity {
                 sharedPreferencesHelper.saveKey("counterForMax",count);
                 sharedPreferencesHelper.saveKey("counter2",counter_2);
 
+                stringBuilder.append(button2_name).append(",");
+                String finalstring=stringBuilder.toString();
+                sharedPreferencesHelper.saveKey("button_name_holder",finalstring);
+
                 if(count==max_count)
                 {
                     button1.setEnabled(false);
@@ -106,15 +112,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        Event C
+//        //stuff that happens when button 3 is pressed
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 count++;
                 counter_3++;
                 txt_display.setText("Total clicks = " + count);
-                sharedPreferencesHelper.saveKey("counterForMax",count);
-                sharedPreferencesHelper.saveKey("counter3",counter_3);
+                sharedPreferencesHelper.saveKey("counterForMax",count);  //store overall counter
+                sharedPreferencesHelper.saveKey("counter3",counter_3);   //store overall counter3
+
+
+                stringBuilder.append(button3_name).append(",");
+                String finalstring=stringBuilder.toString();
+                sharedPreferencesHelper.saveKey("button_name_holder",finalstring);
+
                 if(count==max_count)
                 {
                     button1.setEnabled(false);
@@ -122,8 +134,11 @@ public class MainActivity extends AppCompatActivity {
                     button3.setEnabled(false);
                     txt_display.setText("Max count reached " + count);
                 }
+
+
             }
         });
+
 
         // settings page button
         settings.setOnClickListener(new View.OnClickListener() {
